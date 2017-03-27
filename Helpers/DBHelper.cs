@@ -32,6 +32,7 @@ namespace ClientLibrary.Helpers
         private void CreateTables()
         {
             string query = "create table if not exists Person (id INTEGER PRIMARY KEY AUTOINCREMENT, personId varchar(36), name varchar(100), group_id varchar(36))";
+            //false/sdaafdsfds
         }
     }
 }
