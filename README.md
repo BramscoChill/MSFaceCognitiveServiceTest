@@ -1,0 +1,2 @@
+# MSFaceCognitiveServiceTest
+MSFaceCognitiveServiceTest
