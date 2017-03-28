@@ -188,6 +188,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\LiveFaceDetectionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -216,6 +220,9 @@
     <Compile Include="Controls\FaceDetectionPage.xaml.cs">
       <DependentUpon>FaceDetectionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\LiveFaceDetectionWindow.xaml.cs">
+      <DependentUpon>LiveFaceDetectionWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UIHelper.cs" />
     <Compile Include="Helpers\DBHelper.cs" />
     <Compile Include="Helpers\FaceHelper.cs" />
@@ -226,6 +233,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\FaceExtended.cs" />
+    <Compile Include="Model\ImageItem.cs" />
     <Compile Include="Model\PersonExtended.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

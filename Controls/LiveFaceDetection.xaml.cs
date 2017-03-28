@@ -126,7 +126,8 @@ namespace Microsoft.ProjectOxford.Face.Controls
             detector.Suppression = 3;
 
             Loaded += MainWindow_Loaded;
-
+            Unloaded += delegate(object sender, RoutedEventArgs args) { Environment.Exit(0); };
+            
             
             //faceHelper.TEST();
 

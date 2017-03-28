@@ -10,6 +10,7 @@ namespace ClientLibrary.Controls
     {
         public static string FACE_SUBSCRIPTION_KEY = "d36061dd605f4bccbca339bacaff1cdb";
         public static string TMP_IMAGE_DIR = @"d:\_Data_\Bram\_Projecten_\MSFaceCognitiveServiceTest\_TMPpics_\";
+        public static string PERSONS_IMAGE_DIR = @"d:\_Data_\Bram\_Projecten_\MSFaceCognitiveServiceTest\_PersonPics_\";
 
         //DB stuff
         public static string DB_PERSON_TABLE_NAME= "Person";
@@ -25,9 +26,10 @@ namespace ClientLibrary.Controls
         public static string DB_LIST_ID_FIELDNAME= "list_id";
         public static string DB_LIST_NAME_FIELDNAME= "name";
 
-        public static string DB_PERSON_FACE_TABLE_NAME = "Face";
-        public static string DB_PERSON_FACE_ID_FIELDNAME= "persistedFaceId";
-        public static string DB_PERSON_FACE_FACE_LIST_ID_FIELDNAME= "facelist_id";
-        public static string DB_PERSON_FACE_IMAGENAME_FIELDNAME= "image_name";
+        public static string DB_FACE_TABLE_NAME = "Face";
+        public static string DB_FACE_ID_FIELDNAME= "persistedFaceId";
+        public static string DB_FACE_FACE_LIST_ID_FIELDNAME= "facelist_id";
+        public static string DB_FACE_IMAGENAME_FIELDNAME= "image_name";
+        public static string DB_FACE_PERSON_ID_FIELDNAME= "person_id";
     }
 }
