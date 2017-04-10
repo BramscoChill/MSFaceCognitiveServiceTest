@@ -267,8 +267,9 @@ namespace ClientLibrary.Helpers
             }
         }
 
-        private void DeleteTmpFaceList()
+        public void DeleteFaceList()
         {
+            database.DeleteDB();
             Task.Run(() => faceServiceClient.DeleteFaceListAsync(TMP_FACE_LIST.ToString()));
         }
     }

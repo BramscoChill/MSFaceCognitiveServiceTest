@@ -15,6 +15,7 @@ namespace ClientLibrary.Helpers
     public class DBHelper
     {
         private SQLiteConnection connection;
+        string fullPath = Path.Combine(@"d:\_Data_\Bram\_Projecten_\MSFaceCognitiveServiceTest\_DB_\", "MSCognitive.db");
 
         public DBHelper()
         {
@@ -25,7 +26,6 @@ namespace ClientLibrary.Helpers
 
         private void OpenDBConnection()
         {
-            string fullPath = Path.Combine(@"d:\_Data_\Bram\_Projecten_\MSFaceCognitiveServiceTest\_DB_\", "MSCognitive.db");
             if (File.Exists(fullPath) == false)
             {
                 SQLiteConnection.CreateFile(fullPath);
@@ -235,6 +235,20 @@ namespace ClientLibrary.Helpers
             return result;
         }
 
+        public void DeleteDB()
+        {
+            if (connection != null)
+            {
+                try
+                {
+                    connection.Close();
+                    File.Delete(fullPath);
+                }
+                catch (Exception e)
+                {
+                }
+            }
+        }
         private bool IsGuid(string guidStr)
         {
             try

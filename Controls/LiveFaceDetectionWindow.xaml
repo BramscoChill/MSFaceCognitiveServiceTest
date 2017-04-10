@@ -9,8 +9,8 @@
     <Grid>
         <Image HorizontalAlignment="Stretch" x:Name="frameHolder"  VerticalAlignment="Stretch"  Stretch="Fill" Margin="34,84,296.4,111.6" />
         <Button Click="ButtonTakePicture_OnClick" Content="Take Picture" HorizontalAlignment="Left" Margin="104,35,0,0" VerticalAlignment="Top" Width="200" Height="25"/>
-        <Button Click="ButtonAddAsPerson_OnClick" Content="Add / Update Person" HorizontalAlignment="Left" Margin="420,44,0,0" VerticalAlignment="Top" Width="200" Height="25"/>
-        <ListBox ItemsSource="{Binding ImageItems}" x:Name="lstImages" HorizontalAlignment="Left" Height="188" Margin="420,122,0,0" VerticalAlignment="Top" Width="200">
+        <Button Click="ButtonAddAsPerson_OnClick" Content="Add / Update Person" HorizontalAlignment="Left" Margin="420,72,0,0" VerticalAlignment="Top" Width="200" Height="25"/>
+        <ListBox ItemsSource="{Binding ImageItems}" x:Name="lstImages" HorizontalAlignment="Left" Height="188" Margin="420,138,0,0" VerticalAlignment="Top" Width="200">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -19,14 +19,15 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Click="ButtonClear_OnClick" Content="Clear ListBox" HorizontalAlignment="Left" Margin="420,315,0,0" VerticalAlignment="Top" Width="200" Height="25"/>
-        <Label x:Name="lblInfo" Content="-" Background="#FFF2F2F2" Foreground="#FF000000" FontWeight="Bold" HorizontalAlignment="Left" Margin="420,385,0,0" VerticalAlignment="Top" Width="200"/>
-        <ComboBox x:Name="cmbPersons" IsEditable="True" HorizontalAlignment="Left" Margin="423,95,0,0" VerticalAlignment="Top" Width="154"/>
-        <Button Click="ButtonTest_OnClick" Content="Test" HorizontalAlignment="Left" Margin="420,14,0,0" VerticalAlignment="Top" Width="200" Height="25"/>
+        <Button Click="ButtonClear_OnClick" Content="Clear ListBox" HorizontalAlignment="Left" Margin="420,331,0,0" VerticalAlignment="Top" Width="200" Height="25"/>
+        <Label x:Name="lblInfo" Content="-" Background="#FFF2F2F2" Foreground="#FF000000" FontWeight="Bold" HorizontalAlignment="Left" Margin="420,401,0,0" VerticalAlignment="Top" Width="200"/>
+        <ComboBox x:Name="cmbPersons" IsEditable="True" HorizontalAlignment="Left" Margin="423,111,0,0" VerticalAlignment="Top" Width="154"/>
+        <Button Click="ButtonTest_OnClick" Content="Test" HorizontalAlignment="Left" Margin="420,42,0,0" VerticalAlignment="Top" Width="200" Height="25"/>
         <Rectangle x:Name="rectFace" Visibility="Hidden" StrokeThickness="2" HorizontalAlignment="Left" Height="100" Margin="104,222,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Label x:Name="lblPersonImageCount" Content="0" HorizontalAlignment="Left" Margin="582,95,0,0" VerticalAlignment="Top" Height="23" Width="38"/>
-        <Button Click="ButtonClearInfo_OnClick" Content="Clear Info" HorizontalAlignment="Left" Margin="420,417,0,0" VerticalAlignment="Top" Width="200" Height="25"/>
+        <Label x:Name="lblPersonImageCount" Content="0" HorizontalAlignment="Left" Margin="582,111,0,0" VerticalAlignment="Top" Height="23" Width="38"/>
+        <Button Click="ButtonClearInfo_OnClick" Content="Clear Info" HorizontalAlignment="Left" Margin="420,433,0,0" VerticalAlignment="Top" Width="200" Height="25"/>
         <Label x:Name="lblNumberOfTries" Content="-" Background="#FFF2F2F2" Foreground="#FF000000" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,480,0,0" VerticalAlignment="Top" Width="231"/>
+        <Button Click="ButtonDelete_OnClick" Content="Delete DB and List" HorizontalAlignment="Left" Margin="422,10,0,0" VerticalAlignment="Top" Width="200" Height="25"/>
 
     </Grid>
 </Window>

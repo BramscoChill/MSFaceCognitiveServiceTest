@@ -14,6 +14,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -26,6 +27,8 @@ using ClientLibrary.Model;
 using Microsoft.ProjectOxford.Face;
 using Microsoft.ProjectOxford.Face.Contract;
 using Microsoft.ProjectOxford.Face.Model;
+using Application = System.Windows.Application;
+using MessageBox = System.Windows.MessageBox;
 
 namespace ClientLibrary.Controls
 {
@@ -112,7 +115,7 @@ namespace ClientLibrary.Controls
             string personName = string.IsNullOrEmpty(cmbPersons.SelectedValue.ToString()) ? cmbPersons.Text : cmbPersons.SelectedValue.ToString();
 
             //gets all the person image names from the DB
-            var faces = faceHelper.database.GetFacesFromPersonName(personName);
+            List<Face> faces = faceHelper.database.GetFacesFromPersonName(personName);
             lblPersonImageCount.Content = $"{faces.Count}";
             if (faces != null && faces.Count > 0)
             {
@@ -217,7 +220,7 @@ namespace ClientLibrary.Controls
 
 
 
-                var g = Graphics.FromImage(img);
+                Graphics g = Graphics.FromImage(img);
                 
                 BitmapImage bi = new BitmapImage();
                 bi.BeginInit();
@@ -330,6 +333,20 @@ namespace ClientLibrary.Controls
             lblInfo.Content = "-";
             detectionsSucceeded = 0;
             detectionsFailled = 0;
+        }
+
+        private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult dialogResult = MessageBox.Show("Are you sure to delete all dem DB & face List on the server?", "Deleting stuff", MessageBoxButton.YesNo);
+            if (dialogResult == MessageBoxResult.Yes)
+            {
+                faceHelper.DeleteFaceList();
+                MessageBox.Show("Deleted!");
+            }
+            else if (dialogResult == MessageBoxResult.No)
+            {
+                //do something else
+            }
         }
     }
 }
