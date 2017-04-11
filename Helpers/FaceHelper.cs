@@ -217,7 +217,7 @@ namespace ClientLibrary.Helpers
         }
 
         //Creates a face list at the servers from microsoft
-        private void CreateFaceList()
+        public void CreateFaceList()
         {
             bool faceListExists = false;
             FaceList tmpFaceList;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -287,13 +288,33 @@ namespace ClientLibrary.Controls
                 //DetectedResultsInText = foundList;
                 if (foundPerson != null)
                 {
-                    lblInfo.Content = foundPerson;
+                    lblInfo.Content = GetTimeOfDayDescription() + " " + foundPerson + "!";
                 }
-                lblNumberOfTries.Content =
-                    $"Decetions: {detectionsFailled + detectionsSucceeded}, failled: {detectionsFailled}, succeeded: {detectionsSucceeded}";
+                else
+                {
+                    lblInfo.Content = " - ";
+                }
+                lblNumberOfTries.Content = $"Decetions: {detectionsFailled + detectionsSucceeded}, failled: {detectionsFailled}, succeeded: {detectionsSucceeded}";
             });
         }
 
+        private string GetTimeOfDayDescription()
+        {
+            string part;
+            DateTime @now = DateTime.Now;
+            if (now.Hour > 16)
+            {
+                part = "Goedeavond";
+            } else if (now.Hour > 11)
+            {
+                part = "Goedemiddag";
+            }
+            else
+            {
+                part = "Goedemorgen";
+            }
+            return part;
+        }
         private void ButtonTakePicture_OnClick(object sender, RoutedEventArgs e)
         {
             string fullFilePath = SaveCurrentFrame();
@@ -340,8 +361,31 @@ namespace ClientLibrary.Controls
             MessageBoxResult dialogResult = MessageBox.Show("Are you sure to delete all dem DB & face List on the server?", "Deleting stuff", MessageBoxButton.YesNo);
             if (dialogResult == MessageBoxResult.Yes)
             {
+                //deletes and recreates dem face list
                 faceHelper.DeleteFaceList();
+                try
+                {
+                    faceHelper.CreateFaceList();
+                }
+                catch (Exception exception)
+                {
+                }
                 MessageBox.Show("Deleted!");
+
+                Thread thread = new Thread(new ThreadStart(delegate ()
+               {
+                   try
+                   {
+                       Thread.Sleep(5000);
+                       faceHelper.CreateFaceList();
+                   }
+                   catch (Exception ex)
+                   {
+
+                   }
+
+               }));
+               thread.Start();
             }
             else if (dialogResult == MessageBoxResult.No)
             {
