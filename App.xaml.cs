@@ -32,6 +32,7 @@
 //
 
 using System.Windows;
+using ClientLibrary.Controls;
 
 namespace Microsoft.ProjectOxford.Face
 {
@@ -47,7 +48,7 @@ namespace Microsoft.ProjectOxford.Face
         /// </summary>
         private App()
         {
-            
+            Constants.LoadSettings();
         }
 
         #endregion Constructors

@@ -226,6 +226,7 @@
     <Compile Include="Controls\UIHelper.cs" />
     <Compile Include="Helpers\DBHelper.cs" />
     <Compile Include="Helpers\FaceHelper.cs" />
+    <Compile Include="Helpers\IniFile.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

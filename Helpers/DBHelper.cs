@@ -15,7 +15,6 @@ namespace ClientLibrary.Helpers
     public class DBHelper
     {
         private SQLiteConnection connection;
-        string fullPath = Path.Combine(@"d:\_Data_\Bram\_Projecten_\MSFaceCognitiveServiceTest\_DB_\", "MSCognitive.db");
 
         public DBHelper()
         {
@@ -26,12 +25,12 @@ namespace ClientLibrary.Helpers
 
         private void OpenDBConnection()
         {
-            if (File.Exists(fullPath) == false)
+            if (File.Exists(Constants.DB_FILE) == false)
             {
-                SQLiteConnection.CreateFile(fullPath);
+                SQLiteConnection.CreateFile(Constants.DB_FILE);
             }
 
-            connection = new SQLiteConnection($"Data Source={fullPath};Version=3;");
+            connection = new SQLiteConnection($"Data Source={Constants.DB_FILE};Version=3;");
             connection.Open();
         }
 
@@ -242,7 +241,7 @@ namespace ClientLibrary.Helpers
                 try
                 {
                     connection.Close();
-                    File.Delete(fullPath);
+                    File.Delete(Constants.DB_FILE);
                 }
                 catch (Exception e)
                 {
